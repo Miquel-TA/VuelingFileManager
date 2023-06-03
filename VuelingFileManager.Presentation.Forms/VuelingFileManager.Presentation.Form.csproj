@@ -54,6 +54,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form.resx">
+      <DependentUpon>Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -77,7 +80,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\VuelingFileManager.Business.StudentManager\VuelingFileManager.Business.StudentManager.csproj">
+    <ProjectReference Include="..\VuelingFileManager.Business.StudentManager\VuelingFileManager.Business.Logic.csproj">
       <Project>{a88da5fa-f637-4367-afa3-850c59de4743}</Project>
       <Name>VuelingFileManager.Business.StudentManager</Name>
     </ProjectReference>
