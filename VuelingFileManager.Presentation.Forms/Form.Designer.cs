@@ -45,9 +45,9 @@
             // 
             this.formatInput.Font = new System.Drawing.Font("Arial", 10.2F);
             this.formatInput.FormattingEnabled = true;
-            this.formatInput.Location = new System.Drawing.Point(130, 167);
-            this.formatInput.Name = "comboBox1";
-            this.formatInput.Size = new System.Drawing.Size(183, 30);
+            this.formatInput.Location = new System.Drawing.Point(278, 202);
+            this.formatInput.Name = "formatInput";
+            this.formatInput.Size = new System.Drawing.Size(92, 27);
             this.formatInput.TabIndex = 0;
             // 
             // birthdayPrompt
@@ -55,8 +55,8 @@
             this.birthdayPrompt.AutoSize = true;
             this.birthdayPrompt.Font = new System.Drawing.Font("Arial", 10.2F);
             this.birthdayPrompt.Location = new System.Drawing.Point(32, 28);
-            this.birthdayPrompt.Name = "label1";
-            this.birthdayPrompt.Size = new System.Drawing.Size(48, 22);
+            this.birthdayPrompt.Name = "birthdayPrompt";
+            this.birthdayPrompt.Size = new System.Drawing.Size(51, 19);
             this.birthdayPrompt.TabIndex = 1;
             this.birthdayPrompt.Text = "label1";
             // 
@@ -65,8 +65,8 @@
             this.namePrompt.AutoSize = true;
             this.namePrompt.Font = new System.Drawing.Font("Arial", 10.2F);
             this.namePrompt.Location = new System.Drawing.Point(32, 73);
-            this.namePrompt.Name = "label2";
-            this.namePrompt.Size = new System.Drawing.Size(48, 22);
+            this.namePrompt.Name = "namePrompt";
+            this.namePrompt.Size = new System.Drawing.Size(51, 19);
             this.namePrompt.TabIndex = 2;
             this.namePrompt.Text = "label2";
             // 
@@ -75,8 +75,8 @@
             this.surnamePrompt.AutoSize = true;
             this.surnamePrompt.Font = new System.Drawing.Font("Arial", 10.2F);
             this.surnamePrompt.Location = new System.Drawing.Point(32, 118);
-            this.surnamePrompt.Name = "label3";
-            this.surnamePrompt.Size = new System.Drawing.Size(48, 22);
+            this.surnamePrompt.Name = "surnamePrompt";
+            this.surnamePrompt.Size = new System.Drawing.Size(51, 19);
             this.surnamePrompt.TabIndex = 3;
             this.surnamePrompt.Text = "label3";
             // 
@@ -84,9 +84,9 @@
             // 
             this.formatPrompt.AutoSize = true;
             this.formatPrompt.Font = new System.Drawing.Font("Arial", 10.2F);
-            this.formatPrompt.Location = new System.Drawing.Point(32, 167);
-            this.formatPrompt.Name = "label4";
-            this.formatPrompt.Size = new System.Drawing.Size(48, 22);
+            this.formatPrompt.Location = new System.Drawing.Point(278, 180);
+            this.formatPrompt.Name = "formatPrompt";
+            this.formatPrompt.Size = new System.Drawing.Size(51, 19);
             this.formatPrompt.TabIndex = 4;
             this.formatPrompt.Text = "label4";
             // 
@@ -94,7 +94,7 @@
             // 
             this.nameInput.Font = new System.Drawing.Font("Arial", 10.2F);
             this.nameInput.Location = new System.Drawing.Point(130, 73);
-            this.nameInput.Name = "textBox1";
+            this.nameInput.Name = "nameInput";
             this.nameInput.Size = new System.Drawing.Size(183, 27);
             this.nameInput.TabIndex = 5;
             // 
@@ -102,7 +102,7 @@
             // 
             this.surnameInput.Font = new System.Drawing.Font("Arial", 10.2F);
             this.surnameInput.Location = new System.Drawing.Point(130, 118);
-            this.surnameInput.Name = "textBox2";
+            this.surnameInput.Name = "surnameInput";
             this.surnameInput.Size = new System.Drawing.Size(183, 27);
             this.surnameInput.TabIndex = 6;
             // 
@@ -111,15 +111,15 @@
             this.birthdayInput.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.birthdayInput.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.birthdayInput.Location = new System.Drawing.Point(130, 28);
-            this.birthdayInput.Name = "dateTimePicker1";
+            this.birthdayInput.Name = "birthdayInput";
             this.birthdayInput.Size = new System.Drawing.Size(183, 27);
             this.birthdayInput.TabIndex = 7;
             // 
             // addButton
             // 
             this.addButton.Font = new System.Drawing.Font("Arial", 10.2F);
-            this.addButton.Location = new System.Drawing.Point(278, 212);
-            this.addButton.Name = "button1";
+            this.addButton.Location = new System.Drawing.Point(12, 235);
+            this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(94, 28);
             this.addButton.TabIndex = 8;
             this.addButton.Text = "button1";
@@ -129,8 +129,8 @@
             // exportButton
             // 
             this.exportButton.Font = new System.Drawing.Font("Arial", 10.2F);
-            this.exportButton.Location = new System.Drawing.Point(278, 246);
-            this.exportButton.Name = "button2";
+            this.exportButton.Location = new System.Drawing.Point(278, 235);
+            this.exportButton.Name = "exportButton";
             this.exportButton.Size = new System.Drawing.Size(94, 28);
             this.exportButton.TabIndex = 9;
             this.exportButton.Text = "button2";
@@ -140,8 +140,8 @@
             // feedback
             // 
             this.feedback.AutoSize = true;
-            this.feedback.Location = new System.Drawing.Point(32, 221);
-            this.feedback.Name = "label5";
+            this.feedback.Location = new System.Drawing.Point(13, 213);
+            this.feedback.Name = "feedback";
             this.feedback.Size = new System.Drawing.Size(51, 19);
             this.feedback.TabIndex = 10;
             this.feedback.Text = "label5";
