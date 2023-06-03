@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using VuelingFileManager.Business.Logic;
 using VuelingFileManager.Transversal.Utilities;
 
 namespace VuelingFileManager.Presentation.Form
 {
     public partial class Form : System.Windows.Forms.Form
     {
+
+        private readonly StudentManager studentManager = new StudentManager();
+
         public Form()
         {
             InitializeComponent();
@@ -41,8 +45,8 @@ namespace VuelingFileManager.Presentation.Form
 
             if (validInputs)
             {
-                // Create student with StudentManager
-                throw new NotImplementedException();
+                int studentId = studentManager.AddNewStudent(birthday, name, surname);
+                feedback.Text = $"Student {studentId} added.";
             }
         }
         private bool ValidateInputs(DateTime birthday, string name, string surname)
