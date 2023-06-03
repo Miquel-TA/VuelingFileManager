@@ -12,9 +12,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.Transversal", "4.Transversal", "{E3A44412-BED6-48C4-875E-5ECA1952CE80}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Model", "Model", "{1F6B7998-2AB4-4891-A4AD-78A28D069D5B}"
-	ProjectSection(SolutionItems) = preProject
-		Student.cs = Student.cs
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VuelingFileManager.Presentation.Form", "VuelingFileManager.Presentation.Forms\VuelingFileManager.Presentation.Form.csproj", "{B12ABDF4-224F-48FE-8AA2-B4D4A72B3E76}"
 EndProject

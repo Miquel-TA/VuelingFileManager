@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using VuelingFileManager.Business;
+using VuelingFileManager.Transversal;
 
-namespace VuelingFileManager.Presentation.Forms
+namespace VuelingFileManager.Presentation.Form
 {
     internal static class Program
     {

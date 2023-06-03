@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace VuelingFileManager.Presentation.Forms
+namespace VuelingFileManager.Presentation.Form
 {
     public partial class Form : System.Windows.Forms.Form
     {

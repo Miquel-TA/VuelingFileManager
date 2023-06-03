@@ -1,4 +1,4 @@
-﻿namespace VuelingFileManager.Presentation.Forms
+﻿namespace VuelingFileManager.Presentation.Form
 {
     partial class Form
     {

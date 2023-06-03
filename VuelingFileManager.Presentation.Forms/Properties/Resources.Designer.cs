@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace VuelingFileManager.Presentation.Forms.Properties
+namespace VuelingFileManager.Presentation.Form.Properties
 {
 
 
