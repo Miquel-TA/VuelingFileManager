@@ -28,13 +28,165 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.formatInput = new System.Windows.Forms.ComboBox();
+            this.birthdayPrompt = new System.Windows.Forms.Label();
+            this.namePrompt = new System.Windows.Forms.Label();
+            this.surnamePrompt = new System.Windows.Forms.Label();
+            this.formatPrompt = new System.Windows.Forms.Label();
+            this.nameInput = new System.Windows.Forms.TextBox();
+            this.surnameInput = new System.Windows.Forms.TextBox();
+            this.birthdayInput = new System.Windows.Forms.DateTimePicker();
+            this.addButton = new System.Windows.Forms.Button();
+            this.exportButton = new System.Windows.Forms.Button();
+            this.feedback = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // formatInput
+            // 
+            this.formatInput.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.formatInput.FormattingEnabled = true;
+            this.formatInput.Location = new System.Drawing.Point(130, 167);
+            this.formatInput.Name = "comboBox1";
+            this.formatInput.Size = new System.Drawing.Size(183, 30);
+            this.formatInput.TabIndex = 0;
+            // 
+            // birthdayPrompt
+            // 
+            this.birthdayPrompt.AutoSize = true;
+            this.birthdayPrompt.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.birthdayPrompt.Location = new System.Drawing.Point(32, 28);
+            this.birthdayPrompt.Name = "label1";
+            this.birthdayPrompt.Size = new System.Drawing.Size(48, 22);
+            this.birthdayPrompt.TabIndex = 1;
+            this.birthdayPrompt.Text = "label1";
+            // 
+            // namePrompt
+            // 
+            this.namePrompt.AutoSize = true;
+            this.namePrompt.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.namePrompt.Location = new System.Drawing.Point(32, 73);
+            this.namePrompt.Name = "label2";
+            this.namePrompt.Size = new System.Drawing.Size(48, 22);
+            this.namePrompt.TabIndex = 2;
+            this.namePrompt.Text = "label2";
+            // 
+            // surnamePrompt
+            // 
+            this.surnamePrompt.AutoSize = true;
+            this.surnamePrompt.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.surnamePrompt.Location = new System.Drawing.Point(32, 118);
+            this.surnamePrompt.Name = "label3";
+            this.surnamePrompt.Size = new System.Drawing.Size(48, 22);
+            this.surnamePrompt.TabIndex = 3;
+            this.surnamePrompt.Text = "label3";
+            // 
+            // formatPrompt
+            // 
+            this.formatPrompt.AutoSize = true;
+            this.formatPrompt.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.formatPrompt.Location = new System.Drawing.Point(32, 167);
+            this.formatPrompt.Name = "label4";
+            this.formatPrompt.Size = new System.Drawing.Size(48, 22);
+            this.formatPrompt.TabIndex = 4;
+            this.formatPrompt.Text = "label4";
+            // 
+            // nameInput
+            // 
+            this.nameInput.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.nameInput.Location = new System.Drawing.Point(130, 73);
+            this.nameInput.Name = "textBox1";
+            this.nameInput.Size = new System.Drawing.Size(183, 27);
+            this.nameInput.TabIndex = 5;
+            // 
+            // surnameInput
+            // 
+            this.surnameInput.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.surnameInput.Location = new System.Drawing.Point(130, 118);
+            this.surnameInput.Name = "textBox2";
+            this.surnameInput.Size = new System.Drawing.Size(183, 27);
+            this.surnameInput.TabIndex = 6;
+            // 
+            // birthdayInput
+            // 
+            this.birthdayInput.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.birthdayInput.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.birthdayInput.Location = new System.Drawing.Point(130, 28);
+            this.birthdayInput.Name = "dateTimePicker1";
+            this.birthdayInput.Size = new System.Drawing.Size(183, 27);
+            this.birthdayInput.TabIndex = 7;
+            // 
+            // addButton
+            // 
+            this.addButton.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.addButton.Location = new System.Drawing.Point(278, 212);
+            this.addButton.Name = "button1";
+            this.addButton.Size = new System.Drawing.Size(94, 28);
+            this.addButton.TabIndex = 8;
+            this.addButton.Text = "button1";
+            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            // 
+            // exportButton
+            // 
+            this.exportButton.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.exportButton.Location = new System.Drawing.Point(278, 246);
+            this.exportButton.Name = "button2";
+            this.exportButton.Size = new System.Drawing.Size(94, 28);
+            this.exportButton.TabIndex = 9;
+            this.exportButton.Text = "button2";
+            this.exportButton.UseVisualStyleBackColor = true;
+            this.exportButton.Click += new System.EventHandler(this.exportButton_Click);
+            // 
+            // feedback
+            // 
+            this.feedback.AutoSize = true;
+            this.feedback.Location = new System.Drawing.Point(32, 221);
+            this.feedback.Name = "label5";
+            this.feedback.Size = new System.Drawing.Size(51, 19);
+            this.feedback.TabIndex = 10;
+            this.feedback.Text = "label5";
+            // 
+            // Form
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ClientSize = new System.Drawing.Size(384, 275);
+            this.Controls.Add(this.feedback);
+            this.Controls.Add(this.exportButton);
+            this.Controls.Add(this.addButton);
+            this.Controls.Add(this.birthdayInput);
+            this.Controls.Add(this.surnameInput);
+            this.Controls.Add(this.nameInput);
+            this.Controls.Add(this.formatPrompt);
+            this.Controls.Add(this.surnamePrompt);
+            this.Controls.Add(this.namePrompt);
+            this.Controls.Add(this.birthdayPrompt);
+            this.Controls.Add(this.formatInput);
+            this.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.Name = "Form";
+            this.Text = "VuelingFileManager";
+            this.Load += new System.EventHandler(this.Form_Load);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.ComboBox formatInput;
+        private System.Windows.Forms.Label birthdayPrompt;
+        private System.Windows.Forms.Label namePrompt;
+        private System.Windows.Forms.Label surnamePrompt;
+        private System.Windows.Forms.Label formatPrompt;
+        private System.Windows.Forms.TextBox nameInput;
+        private System.Windows.Forms.TextBox surnameInput;
+        private System.Windows.Forms.DateTimePicker birthdayInput;
+        private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.Button exportButton;
+        private System.Windows.Forms.Label feedback;
     }
 }
 
