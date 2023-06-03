@@ -11,11 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Infrastructure", "3.Infra
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.Transversal", "4.Transversal", "{E3A44412-BED6-48C4-875E-5ECA1952CE80}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Model", "Model", "{1F6B7998-2AB4-4891-A4AD-78A28D069D5B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VuelingFileManager.Presentation.Form", "VuelingFileManager.Presentation.Forms\VuelingFileManager.Presentation.Form.csproj", "{B12ABDF4-224F-48FE-8AA2-B4D4A72B3E76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VuelingFileManager.Business.StudentManager", "VuelingFileManager.Business.StudentManager\VuelingFileManager.Business.StudentManager.csproj", "{A88DA5FA-F637-4367-AFA3-850C59DE4743}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VuelingFileManager.Business.Logic", "VuelingFileManager.Business.StudentManager\VuelingFileManager.Business.Logic.csproj", "{A88DA5FA-F637-4367-AFA3-850C59DE4743}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VuelingFileManager.Infrastructure.DataManager", "VuelingFileManager.Infrastructure.DataManager\VuelingFileManager.Infrastructure.DataManager.csproj", "{FA24F09E-47C1-478C-8D97-F81B17619F88}"
 EndProject
@@ -48,7 +46,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{1F6B7998-2AB4-4891-A4AD-78A28D069D5B} = {E3A44412-BED6-48C4-875E-5ECA1952CE80}
 		{B12ABDF4-224F-48FE-8AA2-B4D4A72B3E76} = {88EB017C-C953-4EC9-AAB3-819925693F95}
 		{A88DA5FA-F637-4367-AFA3-850C59DE4743} = {464D2C53-0ACA-4A35-88E8-3B69C5494094}
 		{FA24F09E-47C1-478C-8D97-F81B17619F88} = {0B394BF7-0BD2-48D4-9022-0ED82629917A}
