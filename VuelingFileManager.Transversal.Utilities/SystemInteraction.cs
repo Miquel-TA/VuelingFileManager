@@ -13,7 +13,7 @@ namespace VuelingFileManager.Transversal.Utilities
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                openFileDialog.Filter = "JSON files (*.json)|*.json|XML files (*.xml)|*.xml|Text files (*.txt)|*.txt|All files (*.*)|*.*";
+                openFileDialog.Filter = "JSON files (*.json)|*.json|XML files (*.xml)|*.xml|Text files (*.txt)|*.txt";
                 openFileDialog.FilterIndex = 4;
                 openFileDialog.RestoreDirectory = true;
 
