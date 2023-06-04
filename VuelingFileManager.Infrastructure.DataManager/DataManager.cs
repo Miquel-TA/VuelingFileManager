@@ -1,5 +1,5 @@
-﻿using System;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
@@ -14,13 +14,13 @@ namespace VuelingFileManager.Infrastructure.DataManager
 
         public string ExportTXT(List<Student> students)
         {
-            string filePath = CreateExportFileAndCombinePaths("txt");
+            string filePath = CreateFilepathForExport("txt");
 
             using (StreamWriter sw = new StreamWriter(filePath))
             {
                 foreach (var student in students)
                 {
-                    sw.WriteLine($"{student.Id},{student.Guid},{student.Birthday},{student.Age},{student.Name},{student.Surname}");
+                    sw.WriteLine($"{student.Id};{student.Guid};{student.Birthday};{student.Age};{student.Name};{student.Surname}");
                 }
             }
             SystemInteraction.OpenFile(filePath);
@@ -29,7 +29,7 @@ namespace VuelingFileManager.Infrastructure.DataManager
 
         public string ExportXML(List<Student> students)
         {
-            string filePath = CreateExportFileAndCombinePaths("xml");
+            string filePath = CreateFilepathForExport("xml");
 
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Student>));
             using (StreamWriter sw = new StreamWriter(filePath))
@@ -42,7 +42,7 @@ namespace VuelingFileManager.Infrastructure.DataManager
 
         public string ExportJSON(List<Student> students)
         {
-            string filePath = CreateExportFileAndCombinePaths("json");
+            string filePath = CreateFilepathForExport("json");
 
             string jsonString = JsonConvert.SerializeObject(students);
             File.WriteAllText(filePath, jsonString);
@@ -50,10 +50,56 @@ namespace VuelingFileManager.Infrastructure.DataManager
             return filePath;
         }
 
-        private string CreateExportFileAndCombinePaths(string format)
+        public List<Student> ImportTXT(string filePath)
         {
-            string date = DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss");
-            string fileName = $"{date} Students.{format}";
+            List<Student> students = new List<Student>();
+            using (StreamReader sr = new StreamReader(filePath))
+            {
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    string[] parts = line.Split(';');
+
+                    int id = int.Parse(parts[0]);
+                    Guid guid = Guid.Parse(parts[1]);
+                    DateTime birthday = DateTime.Parse(parts[2]);
+                    int age = int.Parse(parts[3]);
+                    string name = parts[4];
+                    string surname = parts[5];
+
+                    Student student = new Student(id, birthday, name, surname)
+                    {
+                        Guid = guid,
+                        Age = age
+                    };
+
+                    students.Add(student);
+                }
+            }
+            return students;
+        }
+
+        public List<Student> ImportXML(string filePath)
+        {
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Student>));
+            using (StreamReader sr = new StreamReader(filePath))
+            {
+                return (List<Student>)xmlSerializer.Deserialize(sr);
+            }
+        }
+
+        public List<Student> ImportJSON(string filePath)
+        {
+            string jsonString = File.ReadAllText(filePath);
+            return JsonConvert.DeserializeObject<List<Student>>(jsonString);
+        }
+
+        private string CreateFilepathForExport(string format)
+        {
+            //string date = DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss");
+            //string fileName = $"{date} Students.{format}";
+
+            string fileName = $"Students.{format}";
 
             Directory.CreateDirectory(exportDirectory);
 

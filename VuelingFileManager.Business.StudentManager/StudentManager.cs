@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using VuelingFileManager.Infrastructure.DataManager;
 using VuelingFileManager.Transversal.Utilities.Models;
 
@@ -9,15 +10,13 @@ namespace VuelingFileManager.Business.Logic
     {
         private readonly DataManager DataManager = new DataManager();
 
-        private readonly List<Student> students = new List<Student>();
-        private int studentCount = 0;
+        private List<Student> students = new List<Student>();
 
         public int AddNewStudent(DateTime birthday, string name, string surname)
         {
             Student newStudent = new Student(students.Count, birthday, name, surname);
             students.Add(newStudent);
-            studentCount++;
-            return studentCount;
+            return students.Count;
         }
 
         public string ExportStudents(string format)
@@ -38,6 +37,29 @@ namespace VuelingFileManager.Business.Logic
             }
         }
 
+        public void ImportStudents(string filePath)
+        {
+            string format = Path.GetExtension(filePath);
+
+            switch (format.ToLower())
+            {
+                case ".xml":
+                    students = DataManager.ImportXML(filePath);
+                    break;
+
+                case ".json":
+                    students = DataManager.ImportJSON(filePath);
+                    break;
+
+                case ".txt":
+                    students = DataManager.ImportTXT(filePath);
+                    break;
+
+                default:
+                    throw new FormatException(format);
+            }
+        }
+
         public int GetStudentCount()
         {
             return students.Count;
@@ -45,9 +67,9 @@ namespace VuelingFileManager.Business.Logic
 
         public int EmptyStudents()
         {
-            int studentsCount = students.Count;
+            int removedStudents = GetStudentCount();
             students.Clear();
-            return studentCount;
+            return removedStudents;
         }
     }
 }

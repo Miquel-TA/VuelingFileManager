@@ -40,6 +40,7 @@
             this.exportButton = new System.Windows.Forms.Button();
             this.feedback = new System.Windows.Forms.Label();
             this.clearButton = new System.Windows.Forms.Button();
+            this.importButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // formatInput
@@ -125,7 +126,7 @@
             this.addButton.TabIndex = 8;
             this.addButton.Text = "button1";
             this.addButton.UseVisualStyleBackColor = true;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            this.addButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // exportButton
             // 
@@ -136,12 +137,12 @@
             this.exportButton.TabIndex = 9;
             this.exportButton.Text = "button2";
             this.exportButton.UseVisualStyleBackColor = true;
-            this.exportButton.Click += new System.EventHandler(this.exportButton_Click);
+            this.exportButton.Click += new System.EventHandler(this.ExportButton_Click);
             // 
             // feedback
             // 
             this.feedback.AutoSize = true;
-            this.feedback.Location = new System.Drawing.Point(13, 213);
+            this.feedback.Location = new System.Drawing.Point(32, 159);
             this.feedback.Name = "feedback";
             this.feedback.Size = new System.Drawing.Size(51, 19);
             this.feedback.TabIndex = 10;
@@ -156,7 +157,18 @@
             this.clearButton.TabIndex = 11;
             this.clearButton.Text = "button3";
             this.clearButton.UseVisualStyleBackColor = true;
-            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            this.clearButton.Click += new System.EventHandler(this.ClearButton_Click);
+            // 
+            // importButton
+            // 
+            this.importButton.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.importButton.Location = new System.Drawing.Point(12, 200);
+            this.importButton.Name = "button1";
+            this.importButton.Size = new System.Drawing.Size(94, 28);
+            this.importButton.TabIndex = 12;
+            this.importButton.Text = "button4";
+            this.importButton.UseVisualStyleBackColor = true;
+            this.importButton.Click += new System.EventHandler(this.ImportButton_Click);
             // 
             // Form
             // 
@@ -164,6 +176,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(384, 275);
+            this.Controls.Add(this.importButton);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.feedback);
             this.Controls.Add(this.exportButton);
@@ -201,6 +214,7 @@
         private System.Windows.Forms.Button exportButton;
         private System.Windows.Forms.Label feedback;
         private System.Windows.Forms.Button clearButton;
+        private System.Windows.Forms.Button importButton;
     }
 }
 
