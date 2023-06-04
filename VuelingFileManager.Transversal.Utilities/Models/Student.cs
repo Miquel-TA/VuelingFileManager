@@ -11,6 +11,7 @@ namespace VuelingFileManager.Transversal.Utilities.Models
         public string Name { get; }
         public string Surname { get; }
 
+        public Student() { }
         public Student(int id, DateTime birthday, string name, string surname)
         {
             Id = id;

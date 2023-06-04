@@ -28,31 +28,89 @@ namespace VuelingFileManager.Presentation.Form
             formatInput.DataSource = new List<string> { "TXT", "JSON", "XML" };
             addButton.Text = "Add";
             exportButton.Text = "Export";
+            clearButton.Text = "Clear";
         }
 
         private void exportButton_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            try
+            {
+                feedback.Text = "";
+                int studentCount = studentManager.GetStudentCount();
+                string format = formatInput.SelectedItem.ToString();
+
+                bool validFormat = VerifyExportFormat(format);
+                if (validFormat && studentCount > 0)
+                {
+                    string exportPath = studentManager.ExportStudents(format);
+                    if (exportPath != null)
+                    {
+                        feedback.Text = $"Exported to {format}.";
+                    }
+                    else
+                    {
+                        feedback.Text = $"Export failed.";
+                    }
+                }
+            } catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            DateTime birthday = birthdayInput.Value;
-            string name = nameInput.Text;
-            string surname = surnameInput.Text;
-
-            bool validInputs = ValidateInputs(birthday, name, surname);
-
-            if (validInputs)
+            try
             {
-                int studentId = studentManager.AddNewStudent(birthday, name, surname);
-                feedback.Text = $"Student {studentId} added.";
+                feedback.Text = "";
+                DateTime birthday = birthdayInput.Value;
+                string name = nameInput.Text;
+                string surname = surnameInput.Text;
+
+                bool validInputs = VerifyNewStudentValues(birthday, name, surname);
+                if (validInputs)
+                {
+                    int studentId = studentManager.AddNewStudent(birthday, name, surname);
+                    feedback.Text = $"Student {studentId} added.";
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
-        private bool ValidateInputs(DateTime birthday, string name, string surname)
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int studentsRemoved = studentManager.EmptyStudents();
+                feedback.Text = $"{studentsRemoved} students cleared.";
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        private bool VerifyExportFormat(string format)
+        {
+            if (!Validators.VerifyFormat(format))
+            {
+                formatPrompt.ForeColor = Color.Red;
+                feedback.Text = $"Please check the red fields.";
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        private bool VerifyNewStudentValues(DateTime birthday, string name, string surname)
         {
             bool validInputs = true;
-            feedback.Text = "";
             birthdayPrompt.ForeColor = Color.Black;
             namePrompt.ForeColor = Color.Black;
             surnamePrompt.ForeColor = Color.Black;

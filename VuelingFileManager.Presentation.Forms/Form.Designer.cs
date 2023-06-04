@@ -39,6 +39,7 @@
             this.addButton = new System.Windows.Forms.Button();
             this.exportButton = new System.Windows.Forms.Button();
             this.feedback = new System.Windows.Forms.Label();
+            this.clearButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // formatInput
@@ -146,12 +147,24 @@
             this.feedback.TabIndex = 10;
             this.feedback.Text = "label5";
             // 
+            // clearButton
+            // 
+            this.clearButton.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.clearButton.Location = new System.Drawing.Point(148, 235);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(94, 28);
+            this.clearButton.TabIndex = 11;
+            this.clearButton.Text = "button3";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            // 
             // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(384, 275);
+            this.Controls.Add(this.clearButton);
             this.Controls.Add(this.feedback);
             this.Controls.Add(this.exportButton);
             this.Controls.Add(this.addButton);
@@ -187,6 +200,7 @@
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button exportButton;
         private System.Windows.Forms.Label feedback;
+        private System.Windows.Forms.Button clearButton;
     }
 }
 

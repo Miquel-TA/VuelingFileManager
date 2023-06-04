@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using VuelingFileManager.Infrastructure;
-using VuelingFileManager.Transversal.Utilities;
+using VuelingFileManager.Infrastructure.DataManager;
 using VuelingFileManager.Transversal.Utilities.Models;
 
 namespace VuelingFileManager.Business.Logic
 {
     public class StudentManager
     {
+        private readonly DataManager DataManager = new DataManager();
+
         private readonly List<Student> students = new List<Student>();
         private int studentCount = 0;
 
@@ -16,6 +17,36 @@ namespace VuelingFileManager.Business.Logic
             Student newStudent = new Student(students.Count, birthday, name, surname);
             students.Add(newStudent);
             studentCount++;
+            return studentCount;
+        }
+
+        public string ExportStudents(string format)
+        {
+            switch (format)
+            {
+                case "TXT":
+                    return DataManager.ExportTXT(students);
+
+                case "XML":
+                    return DataManager.ExportXML(students);
+
+                case "JSON":
+                    return DataManager.ExportJSON(students);
+
+                default:
+                    return null;
+            }
+        }
+
+        public int GetStudentCount()
+        {
+            return students.Count;
+        }
+
+        public int EmptyStudents()
+        {
+            int studentsCount = students.Count;
+            students.Clear();
             return studentCount;
         }
     }
