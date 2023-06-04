@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VuelingFileManager.Presenta
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VuelingFileManager.Business.Logic", "VuelingFileManager.Business.StudentManager\VuelingFileManager.Business.Logic.csproj", "{A88DA5FA-F637-4367-AFA3-850C59DE4743}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VuelingFileManager.Infrastructure.DataManager", "VuelingFileManager.Infrastructure.DataManager\VuelingFileManager.Infrastructure.DataManager.csproj", "{FA24F09E-47C1-478C-8D97-F81B17619F88}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VuelingFileManager.Infrastructure.Repository", "VuelingFileManager.Infrastructure.DataManager\VuelingFileManager.Infrastructure.Repository.csproj", "{FA24F09E-47C1-478C-8D97-F81B17619F88}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VuelingFileManager.Transversal.Utilities", "VuelingFileManager.Transversal.Utilities\VuelingFileManager.Transversal.Utilities.csproj", "{15A1CC66-4EB9-4AEE-99B8-B1D9ED041342}"
 EndProject
