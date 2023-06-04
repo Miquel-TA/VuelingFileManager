@@ -34,7 +34,7 @@ namespace VuelingFileManager.Business.Logic
                     return DataManager.ExportJSON(students);
 
                 default:
-                    return null;
+                    throw new FormatException(format);
             }
         }
 

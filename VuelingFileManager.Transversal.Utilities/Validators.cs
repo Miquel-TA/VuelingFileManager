@@ -5,9 +5,9 @@ namespace VuelingFileManager.Transversal.Utilities
 {
     public static class Validators
     {
-        public static bool VerifyDateTime(DateTime birthday)
+        public static bool VerifyDateTime(DateTime birthday, int minimumStudentAge)
         {
-            if (birthday < DateTime.Now.AddYears(-120) || birthday > DateTime.Now)
+            if (birthday < DateTime.Now.AddYears(-120) || birthday > DateTime.Now.AddYears(-minimumStudentAge))
             {
                 return false;
             }
@@ -28,8 +28,15 @@ namespace VuelingFileManager.Transversal.Utilities
         {
             foreach (char letter in name)
             {
-                // If letter is unicode or ASCII letters.
-                bool valid = (letter >= 'A' && letter <= 'z') || letter >= 160;
+                bool valid = 
+                    (letter >= 'A' && letter <= 'z') ||
+                    letter == '\'' ||
+                    letter == '.' ||
+                    letter == ',' ||
+                    letter == ' ' ||
+                    letter == '-' ||
+                    letter >= 160;
+
                 if (!valid)
                 {
                     return false;
