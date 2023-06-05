@@ -31,7 +31,8 @@ namespace VuelingFileManager.Transversal.Utilities
             foreach (char letter in name)
             {
                 bool valid = 
-                    (letter >= 'A' && letter <= 'z') ||
+                    (letter >= 'A' && letter <= 'Z') ||
+                    (letter >= 'a' && letter <= 'z') ||
                     letter == '\'' ||
                     letter == '.' ||
                     letter == ',' ||
