@@ -9,7 +9,7 @@ namespace VuelingFileManager.Presentation.Form
     {
         /// <summary>
         /// 
-        /// VERSION 1.0
+        /// VERSION 1.1
         /// CODE MADE BY MIQUEL T.
         /// 06/06/2023
         /// 
