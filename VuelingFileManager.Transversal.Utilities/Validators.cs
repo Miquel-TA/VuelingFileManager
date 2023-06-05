@@ -26,7 +26,7 @@ namespace VuelingFileManager.Transversal.Utilities
 
         public static bool VerifyName(string name)
         {
-            if (name.Length == 0) return false;
+            if (name.Length == 0 || name.Length > 100) return false;
 
             foreach (char letter in name)
             {
