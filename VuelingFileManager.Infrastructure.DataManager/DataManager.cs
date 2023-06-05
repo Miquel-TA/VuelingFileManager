@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using System.Xml.Serialization;
 using VuelingFileManager.Transversal.Utilities;
 using VuelingFileManager.Transversal.Utilities.Models;
@@ -72,7 +73,6 @@ namespace VuelingFileManager.Infrastructure.DataManager
                         Guid = guid,
                         Age = age
                     };
-
                     students.Add(student);
                 }
             }
@@ -84,18 +84,35 @@ namespace VuelingFileManager.Infrastructure.DataManager
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Student>));
             using (StreamReader sr = new StreamReader(filePath))
             {
-                return (List<Student>)xmlSerializer.Deserialize(sr);
+                List<Student> newStudentList = (List<Student>)xmlSerializer.Deserialize(sr);
+                if (newStudentList != null)
+                {
+                    return newStudentList;
+                }
+                else
+                {
+                    return new List<Student>();
+                }
             }
         }
 
         public List<Student> ImportJSON(string filePath)
         {
             string jsonString = File.ReadAllText(filePath);
-            return JsonConvert.DeserializeObject<List<Student>>(jsonString);
+            List<Student> newStudentList = JsonConvert.DeserializeObject<List<Student>>(jsonString);
+            if (newStudentList != null )
+            {
+                return newStudentList;
+            }
+            else
+            {
+                return new List<Student>();
+            }
         }
 
         private string CreateFilepathForExport(string format)
         {
+            //Multiple file creation based on datetime
             //string date = DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss");
             //string fileName = $"{date} Students.{format}";
 
