@@ -8,7 +8,11 @@ namespace VuelingFileManager.Presentation.Form
     internal static class Program
     {
         /// <summary>
-        /// Punto de entrada principal para la aplicación.
+        /// 
+        /// VERSION 1.0
+        /// CODE MADE BY MIQUEL T.
+        /// 06/06/2023
+        /// 
         /// </summary>
         [STAThread]
         static void Main()
