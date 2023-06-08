@@ -41,6 +41,7 @@
             this.feedback = new System.Windows.Forms.Label();
             this.clearButton = new System.Windows.Forms.Button();
             this.importButton = new System.Windows.Forms.Button();
+            this.AutoSave = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // formatInput
@@ -163,12 +164,24 @@
             // 
             this.importButton.Font = new System.Drawing.Font("Arial", 10.2F);
             this.importButton.Location = new System.Drawing.Point(12, 200);
-            this.importButton.Name = "button1";
+            this.importButton.Name = "importButton";
             this.importButton.Size = new System.Drawing.Size(94, 28);
             this.importButton.TabIndex = 12;
             this.importButton.Text = "button4";
             this.importButton.UseVisualStyleBackColor = true;
             this.importButton.Click += new System.EventHandler(this.ImportButton_Click);
+            // 
+            // AutoSave
+            // 
+            this.AutoSave.AutoSize = true;
+            this.AutoSave.Checked = true;
+            this.AutoSave.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.AutoSave.Location = new System.Drawing.Point(155, 202);
+            this.AutoSave.Name = "AutoSave";
+            this.AutoSave.Size = new System.Drawing.Size(114, 23);
+            this.AutoSave.TabIndex = 13;
+            this.AutoSave.Text = "CheckBox1";
+            this.AutoSave.UseVisualStyleBackColor = true;
             // 
             // Form
             // 
@@ -176,6 +189,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(384, 275);
+            this.Controls.Add(this.AutoSave);
             this.Controls.Add(this.importButton);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.feedback);
@@ -215,6 +229,7 @@
         private System.Windows.Forms.Label feedback;
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Button importButton;
+        private System.Windows.Forms.CheckBox AutoSave;
     }
 }
 
