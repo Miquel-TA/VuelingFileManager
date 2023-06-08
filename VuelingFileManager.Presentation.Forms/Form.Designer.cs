@@ -28,70 +28,70 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.formatInput = new System.Windows.Forms.ComboBox();
-            this.birthdayPrompt = new System.Windows.Forms.Label();
-            this.namePrompt = new System.Windows.Forms.Label();
-            this.surnamePrompt = new System.Windows.Forms.Label();
-            this.formatPrompt = new System.Windows.Forms.Label();
+            this.FileFormatCombobox = new System.Windows.Forms.ComboBox();
+            this.BirthdayLabel = new System.Windows.Forms.Label();
+            this.NameLabel = new System.Windows.Forms.Label();
+            this.SurnameLabel = new System.Windows.Forms.Label();
+            this.FileFormatLabel = new System.Windows.Forms.Label();
             this.nameInput = new System.Windows.Forms.TextBox();
             this.surnameInput = new System.Windows.Forms.TextBox();
-            this.birthdayInput = new System.Windows.Forms.DateTimePicker();
-            this.addButton = new System.Windows.Forms.Button();
-            this.exportButton = new System.Windows.Forms.Button();
-            this.feedback = new System.Windows.Forms.Label();
-            this.clearButton = new System.Windows.Forms.Button();
-            this.importButton = new System.Windows.Forms.Button();
+            this.birthdayDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.AddUserToFileButton = new System.Windows.Forms.Button();
+            this.CreateCopyButton = new System.Windows.Forms.Button();
+            this.FeedbackLabel = new System.Windows.Forms.Label();
+            this.EmptyFileButton = new System.Windows.Forms.Button();
+            this.ImportFileButton = new System.Windows.Forms.Button();
             this.AutoSave = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
-            // formatInput
+            // FileFormatCombobox
             // 
-            this.formatInput.Font = new System.Drawing.Font("Arial", 10.2F);
-            this.formatInput.FormattingEnabled = true;
-            this.formatInput.Location = new System.Drawing.Point(278, 202);
-            this.formatInput.Name = "formatInput";
-            this.formatInput.Size = new System.Drawing.Size(92, 27);
-            this.formatInput.TabIndex = 0;
+            this.FileFormatCombobox.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.FileFormatCombobox.FormattingEnabled = true;
+            this.FileFormatCombobox.Location = new System.Drawing.Point(278, 202);
+            this.FileFormatCombobox.Name = "formatInput";
+            this.FileFormatCombobox.Size = new System.Drawing.Size(92, 27);
+            this.FileFormatCombobox.TabIndex = 0;
             // 
-            // birthdayPrompt
+            // BirthdayLabel
             // 
-            this.birthdayPrompt.AutoSize = true;
-            this.birthdayPrompt.Font = new System.Drawing.Font("Arial", 10.2F);
-            this.birthdayPrompt.Location = new System.Drawing.Point(32, 28);
-            this.birthdayPrompt.Name = "birthdayPrompt";
-            this.birthdayPrompt.Size = new System.Drawing.Size(51, 19);
-            this.birthdayPrompt.TabIndex = 1;
-            this.birthdayPrompt.Text = "label1";
+            this.BirthdayLabel.AutoSize = true;
+            this.BirthdayLabel.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.BirthdayLabel.Location = new System.Drawing.Point(32, 28);
+            this.BirthdayLabel.Name = "birthdayPrompt";
+            this.BirthdayLabel.Size = new System.Drawing.Size(51, 19);
+            this.BirthdayLabel.TabIndex = 1;
+            this.BirthdayLabel.Text = "label1";
             // 
-            // namePrompt
+            // NameLabel
             // 
-            this.namePrompt.AutoSize = true;
-            this.namePrompt.Font = new System.Drawing.Font("Arial", 10.2F);
-            this.namePrompt.Location = new System.Drawing.Point(32, 73);
-            this.namePrompt.Name = "namePrompt";
-            this.namePrompt.Size = new System.Drawing.Size(51, 19);
-            this.namePrompt.TabIndex = 2;
-            this.namePrompt.Text = "label2";
+            this.NameLabel.AutoSize = true;
+            this.NameLabel.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.NameLabel.Location = new System.Drawing.Point(32, 73);
+            this.NameLabel.Name = "namePrompt";
+            this.NameLabel.Size = new System.Drawing.Size(51, 19);
+            this.NameLabel.TabIndex = 2;
+            this.NameLabel.Text = "label2";
             // 
-            // surnamePrompt
+            // SurnameLabel
             // 
-            this.surnamePrompt.AutoSize = true;
-            this.surnamePrompt.Font = new System.Drawing.Font("Arial", 10.2F);
-            this.surnamePrompt.Location = new System.Drawing.Point(32, 118);
-            this.surnamePrompt.Name = "surnamePrompt";
-            this.surnamePrompt.Size = new System.Drawing.Size(51, 19);
-            this.surnamePrompt.TabIndex = 3;
-            this.surnamePrompt.Text = "label3";
+            this.SurnameLabel.AutoSize = true;
+            this.SurnameLabel.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.SurnameLabel.Location = new System.Drawing.Point(32, 118);
+            this.SurnameLabel.Name = "surnamePrompt";
+            this.SurnameLabel.Size = new System.Drawing.Size(51, 19);
+            this.SurnameLabel.TabIndex = 3;
+            this.SurnameLabel.Text = "label3";
             // 
-            // formatPrompt
+            // FileFormatLabel
             // 
-            this.formatPrompt.AutoSize = true;
-            this.formatPrompt.Font = new System.Drawing.Font("Arial", 10.2F);
-            this.formatPrompt.Location = new System.Drawing.Point(278, 180);
-            this.formatPrompt.Name = "formatPrompt";
-            this.formatPrompt.Size = new System.Drawing.Size(51, 19);
-            this.formatPrompt.TabIndex = 4;
-            this.formatPrompt.Text = "label4";
+            this.FileFormatLabel.AutoSize = true;
+            this.FileFormatLabel.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.FileFormatLabel.Location = new System.Drawing.Point(278, 180);
+            this.FileFormatLabel.Name = "formatPrompt";
+            this.FileFormatLabel.Size = new System.Drawing.Size(51, 19);
+            this.FileFormatLabel.TabIndex = 4;
+            this.FileFormatLabel.Text = "label4";
             // 
             // nameInput
             // 
@@ -109,67 +109,67 @@
             this.surnameInput.Size = new System.Drawing.Size(183, 27);
             this.surnameInput.TabIndex = 6;
             // 
-            // birthdayInput
+            // birthdayDatePicker
             // 
-            this.birthdayInput.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.birthdayInput.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.birthdayInput.Location = new System.Drawing.Point(130, 28);
-            this.birthdayInput.Name = "birthdayInput";
-            this.birthdayInput.Size = new System.Drawing.Size(183, 27);
-            this.birthdayInput.TabIndex = 7;
+            this.birthdayDatePicker.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.birthdayDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.birthdayDatePicker.Location = new System.Drawing.Point(130, 28);
+            this.birthdayDatePicker.Name = "birthdayInput";
+            this.birthdayDatePicker.Size = new System.Drawing.Size(183, 27);
+            this.birthdayDatePicker.TabIndex = 7;
             // 
-            // addButton
+            // AddUserToFileButton
             // 
-            this.addButton.Font = new System.Drawing.Font("Arial", 10.2F);
-            this.addButton.Location = new System.Drawing.Point(12, 235);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(94, 28);
-            this.addButton.TabIndex = 8;
-            this.addButton.Text = "button1";
-            this.addButton.UseVisualStyleBackColor = true;
-            this.addButton.Click += new System.EventHandler(this.AddButton_Click);
+            this.AddUserToFileButton.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.AddUserToFileButton.Location = new System.Drawing.Point(12, 235);
+            this.AddUserToFileButton.Name = "addButton";
+            this.AddUserToFileButton.Size = new System.Drawing.Size(94, 28);
+            this.AddUserToFileButton.TabIndex = 8;
+            this.AddUserToFileButton.Text = "button1";
+            this.AddUserToFileButton.UseVisualStyleBackColor = true;
+            this.AddUserToFileButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
-            // exportButton
+            // CreateCopyButton
             // 
-            this.exportButton.Font = new System.Drawing.Font("Arial", 10.2F);
-            this.exportButton.Location = new System.Drawing.Point(278, 235);
-            this.exportButton.Name = "exportButton";
-            this.exportButton.Size = new System.Drawing.Size(94, 28);
-            this.exportButton.TabIndex = 9;
-            this.exportButton.Text = "button2";
-            this.exportButton.UseVisualStyleBackColor = true;
-            this.exportButton.Click += new System.EventHandler(this.ExportButton_Click);
+            this.CreateCopyButton.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.CreateCopyButton.Location = new System.Drawing.Point(278, 235);
+            this.CreateCopyButton.Name = "exportButton";
+            this.CreateCopyButton.Size = new System.Drawing.Size(94, 28);
+            this.CreateCopyButton.TabIndex = 9;
+            this.CreateCopyButton.Text = "button2";
+            this.CreateCopyButton.UseVisualStyleBackColor = true;
+            this.CreateCopyButton.Click += new System.EventHandler(this.SaveFileButton_Click);
             // 
-            // feedback
+            // FeedbackLabel
             // 
-            this.feedback.AutoSize = true;
-            this.feedback.Location = new System.Drawing.Point(32, 159);
-            this.feedback.Name = "feedback";
-            this.feedback.Size = new System.Drawing.Size(51, 19);
-            this.feedback.TabIndex = 10;
-            this.feedback.Text = "label5";
+            this.FeedbackLabel.AutoSize = true;
+            this.FeedbackLabel.Location = new System.Drawing.Point(32, 159);
+            this.FeedbackLabel.Name = "feedback";
+            this.FeedbackLabel.Size = new System.Drawing.Size(51, 19);
+            this.FeedbackLabel.TabIndex = 10;
+            this.FeedbackLabel.Text = "label5";
             // 
-            // clearButton
+            // EmptyFileButton
             // 
-            this.clearButton.Font = new System.Drawing.Font("Arial", 10.2F);
-            this.clearButton.Location = new System.Drawing.Point(148, 235);
-            this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(94, 28);
-            this.clearButton.TabIndex = 11;
-            this.clearButton.Text = "button3";
-            this.clearButton.UseVisualStyleBackColor = true;
-            this.clearButton.Click += new System.EventHandler(this.ClearButton_Click);
+            this.EmptyFileButton.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.EmptyFileButton.Location = new System.Drawing.Point(148, 235);
+            this.EmptyFileButton.Name = "clearButton";
+            this.EmptyFileButton.Size = new System.Drawing.Size(94, 28);
+            this.EmptyFileButton.TabIndex = 11;
+            this.EmptyFileButton.Text = "button3";
+            this.EmptyFileButton.UseVisualStyleBackColor = true;
+            this.EmptyFileButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
-            // importButton
+            // ImportFileButton
             // 
-            this.importButton.Font = new System.Drawing.Font("Arial", 10.2F);
-            this.importButton.Location = new System.Drawing.Point(12, 200);
-            this.importButton.Name = "importButton";
-            this.importButton.Size = new System.Drawing.Size(94, 28);
-            this.importButton.TabIndex = 12;
-            this.importButton.Text = "button4";
-            this.importButton.UseVisualStyleBackColor = true;
-            this.importButton.Click += new System.EventHandler(this.ImportButton_Click);
+            this.ImportFileButton.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.ImportFileButton.Location = new System.Drawing.Point(12, 200);
+            this.ImportFileButton.Name = "importButton";
+            this.ImportFileButton.Size = new System.Drawing.Size(94, 28);
+            this.ImportFileButton.TabIndex = 12;
+            this.ImportFileButton.Text = "button4";
+            this.ImportFileButton.UseVisualStyleBackColor = true;
+            this.ImportFileButton.Click += new System.EventHandler(this.ImportButton_Click);
             // 
             // AutoSave
             // 
@@ -190,19 +190,19 @@
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(384, 275);
             this.Controls.Add(this.AutoSave);
-            this.Controls.Add(this.importButton);
-            this.Controls.Add(this.clearButton);
-            this.Controls.Add(this.feedback);
-            this.Controls.Add(this.exportButton);
-            this.Controls.Add(this.addButton);
-            this.Controls.Add(this.birthdayInput);
+            this.Controls.Add(this.ImportFileButton);
+            this.Controls.Add(this.EmptyFileButton);
+            this.Controls.Add(this.FeedbackLabel);
+            this.Controls.Add(this.CreateCopyButton);
+            this.Controls.Add(this.AddUserToFileButton);
+            this.Controls.Add(this.birthdayDatePicker);
             this.Controls.Add(this.surnameInput);
             this.Controls.Add(this.nameInput);
-            this.Controls.Add(this.formatPrompt);
-            this.Controls.Add(this.surnamePrompt);
-            this.Controls.Add(this.namePrompt);
-            this.Controls.Add(this.birthdayPrompt);
-            this.Controls.Add(this.formatInput);
+            this.Controls.Add(this.FileFormatLabel);
+            this.Controls.Add(this.SurnameLabel);
+            this.Controls.Add(this.NameLabel);
+            this.Controls.Add(this.BirthdayLabel);
+            this.Controls.Add(this.FileFormatCombobox);
             this.Font = new System.Drawing.Font("Arial", 10.2F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -216,19 +216,19 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox formatInput;
-        private System.Windows.Forms.Label birthdayPrompt;
-        private System.Windows.Forms.Label namePrompt;
-        private System.Windows.Forms.Label surnamePrompt;
-        private System.Windows.Forms.Label formatPrompt;
+        private System.Windows.Forms.ComboBox FileFormatCombobox;
+        private System.Windows.Forms.Label BirthdayLabel;
+        private System.Windows.Forms.Label NameLabel;
+        private System.Windows.Forms.Label SurnameLabel;
+        private System.Windows.Forms.Label FileFormatLabel;
         private System.Windows.Forms.TextBox nameInput;
         private System.Windows.Forms.TextBox surnameInput;
-        private System.Windows.Forms.DateTimePicker birthdayInput;
-        private System.Windows.Forms.Button addButton;
-        private System.Windows.Forms.Button exportButton;
-        private System.Windows.Forms.Label feedback;
-        private System.Windows.Forms.Button clearButton;
-        private System.Windows.Forms.Button importButton;
+        private System.Windows.Forms.DateTimePicker birthdayDatePicker;
+        private System.Windows.Forms.Button AddUserToFileButton;
+        private System.Windows.Forms.Button CreateCopyButton;
+        private System.Windows.Forms.Label FeedbackLabel;
+        private System.Windows.Forms.Button EmptyFileButton;
+        private System.Windows.Forms.Button ImportFileButton;
         private System.Windows.Forms.CheckBox AutoSave;
     }
 }
