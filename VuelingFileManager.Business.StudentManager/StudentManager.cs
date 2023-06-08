@@ -12,28 +12,26 @@ namespace VuelingFileManager.Business.Logic
 
         private List<Student> students = new List<Student>();
 
-        public int AddNewStudent(DateTime birthday, string name, string surname)
+        public void AddNewStudent(Student newStudent)
         {
-            Student newStudent = new Student(students.Count, birthday, name, surname);
             students.Add(newStudent);
-            return students.Count;
         }
 
-        public string ExportStudents(string format)
+        public string ExportStudents(FileType format)
         {
             switch (format)
             {
-                case "TXT":
+                case FileType.TXT:
                     return DataManager.ExportTXT(students);
 
-                case "XML":
+                case FileType.XML:
                     return DataManager.ExportXML(students);
 
-                case "JSON":
+                case FileType.JSON:
                     return DataManager.ExportJSON(students);
 
                 default:
-                    throw new FormatException(format);
+                    throw new FormatException($"Format exception in {format}");
             }
         }
 
