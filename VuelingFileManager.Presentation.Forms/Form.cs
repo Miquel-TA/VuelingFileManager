@@ -97,6 +97,11 @@ namespace VuelingFileManager.Presentation.Form
                 int studentsRemoved = studentManager.EmptyStudents();
                 feedback.Text = $"{studentsRemoved} students cleared.";
                 Logger.Log($"{studentsRemoved} students cleared.", Logger.Severity.Info);
+
+                if (AutoSave.Checked)
+                {
+                    ExportButton_Click(sender, e);
+                }
             }
             catch (Exception ex)
             {
