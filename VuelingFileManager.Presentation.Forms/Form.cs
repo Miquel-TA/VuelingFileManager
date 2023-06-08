@@ -133,34 +133,25 @@ namespace VuelingFileManager.Presentation.Form
 
         private bool VerifyExportInputs(object format, int studentCount)
         {
-            if (studentCount > 0)
+            if (format != null)
             {
-                if (format != null)
+                if (Validators.VerifyFormat(format.ToString()))
                 {
-                    if (Validators.VerifyFormat(format.ToString()))
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        formatPrompt.ForeColor = Color.Red;
-                        feedback.Text = $"Please check the red fields.";
-                        Logger.Log($"Format {format} is not valid for export.", Logger.Severity.Info);
-                        return false;
-                    }
+                    return true;
                 }
                 else
                 {
                     formatPrompt.ForeColor = Color.Red;
                     feedback.Text = $"Please check the red fields.";
-                    Logger.Log($"Format is null, thus not valid for export.", Logger.Severity.Info);
+                    Logger.Log($"Format {format} is not valid for export.", Logger.Severity.Info);
                     return false;
                 }
             }
             else
             {
-                feedback.Text = $"There are no students to export.";
-                Logger.Log($"StudentCount {studentCount} is not valid for export.", Logger.Severity.Info);
+                formatPrompt.ForeColor = Color.Red;
+                feedback.Text = $"Please check the red fields.";
+                Logger.Log($"Format is null, thus not valid for export.", Logger.Severity.Info);
                 return false;
             }
         }
