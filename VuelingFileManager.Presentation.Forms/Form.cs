@@ -25,13 +25,14 @@ namespace VuelingFileManager.Presentation.Form
                 birthdayPrompt.Text = "Birthday";
                 namePrompt.Text = "Name";
                 surnamePrompt.Text = "Surname";
-                formatPrompt.Text = "Export format";
+                formatPrompt.Text = "Save format";
                 feedback.Text = "";
                 formatInput.DataSource = new List<string> { "TXT", "JSON", "XML" };
                 addButton.Text = "Add";
-                exportButton.Text = "Export";
+                exportButton.Text = "Save";
                 clearButton.Text = "Clear";
                 importButton.Text = "Import";
+                AutoSave.Text = "Auto Save";
                 Logger.Log("UI initialized.", Logger.Severity.Info);
             } catch (Exception ex)
             {
@@ -76,6 +77,11 @@ namespace VuelingFileManager.Presentation.Form
                     int studentId = studentManager.AddNewStudent(birthday, name, surname);
                     feedback.Text = $"Student {studentId} added.";
                     Logger.Log($"Student {studentId} added.", Logger.Severity.Info);
+                }
+
+                if (AutoSave.Checked)
+                {
+                    ExportButton_Click(sender, e);
                 }
             }
             catch (Exception ex)
@@ -153,6 +159,7 @@ namespace VuelingFileManager.Presentation.Form
                 return false;
             }
         }
+
         private bool VerifyStudentInputs(DateTime birthday, string name, string surname)
         {
             bool validInputs = true;
