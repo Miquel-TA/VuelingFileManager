@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using VuelingFileManager.Business.Logic;
 using VuelingFileManager.Transversal.Utilities;
+using VuelingFileManager.Transversal.Utilities.Models;
 
 namespace VuelingFileManager.Presentation.Form
 {
@@ -20,18 +20,18 @@ namespace VuelingFileManager.Presentation.Form
         {
             try
             {
-                birthdayInput.MinDate = DateTime.Now.AddYears(-120);
-                birthdayInput.MaxDate = DateTime.Now.AddYears(-minimumStudentAge);
-                birthdayPrompt.Text = "Birthday";
-                namePrompt.Text = "Name";
-                surnamePrompt.Text = "Surname";
-                formatPrompt.Text = "Save format";
-                feedback.Text = "";
-                formatInput.DataSource = new List<string> { "TXT", "JSON", "XML" };
-                addButton.Text = "Add";
-                exportButton.Text = "Save";
-                clearButton.Text = "Clear";
-                importButton.Text = "Import";
+                birthdayDatePicker.MinDate = DateTime.Now.AddYears(-120);
+                birthdayDatePicker.MaxDate = DateTime.Now.AddYears(-minimumStudentAge);
+                BirthdayLabel.Text = "Birthday";
+                NameLabel.Text = "Name";
+                SurnameLabel.Text = "Surname";
+                FileFormatLabel.Text = "Save format";
+                FeedbackLabel.Text = "";
+                FileFormatCombobox.DataSource = Enum.GetValues(typeof(FileType));
+                AddUserToFileButton.Text = "Add";
+                CreateCopyButton.Text = "Save";
+                EmptyFileButton.Text = "Clear";
+                ImportFileButton.Text = "Import";
                 AutoSave.Text = "Auto Save";
                 Logger.Log("UI initialized.", Logger.Severity.Info);
             } catch (Exception ex)
@@ -40,23 +40,18 @@ namespace VuelingFileManager.Presentation.Form
             }
         }
 
-        private void ExportButton_Click(object sender, EventArgs e)
+        private void SaveFileButton_Click(object sender, EventArgs e)
         {
             try
             {
-                feedback.Text = "";
-                int studentCount = studentManager.GetStudentCount();
-                var format = formatInput.SelectedItem;
+                FeedbackLabel.Text = "";
 
-                bool validInputs = VerifyExportInputs(format, studentCount);
+                object unsafeFileFormat = FileFormatCombobox.SelectedItem;
 
-                if (validInputs)
-                {
-                    string exportPath = studentManager.ExportStudents(format.ToString());
-                    feedback.Text = exportPath;
-                    Logger.Log($"Exported {studentCount} students to {exportPath}.", Logger.Severity.Info);
-                }
-            } catch (Exception ex)
+                VerifyFormatAndSaveFile(unsafeFileFormat);
+
+            }
+            catch (Exception ex)
             {
                 Logger.Log(ex.Message, Logger.Severity.Critical);
             }
@@ -66,22 +61,19 @@ namespace VuelingFileManager.Presentation.Form
         {
             try
             {
-                feedback.Text = "";
-                DateTime birthday = birthdayInput.Value;
+                FeedbackLabel.Text = "";
+
+                DateTime birthday = birthdayDatePicker.Value;
                 string name = nameInput.Text;
                 string surname = surnameInput.Text;
+                int studentId = studentManager.GetStudentCount();
 
-                bool validInputs = VerifyStudentInputs(birthday, name, surname);
-                if (validInputs)
-                {
-                    int studentId = studentManager.AddNewStudent(birthday, name, surname);
-                    feedback.Text = $"Student {studentId} added.";
-                    Logger.Log($"Student {studentId} added.", Logger.Severity.Info);
-                }
+                Student newStudent = new Student(studentId, birthday, name, surname);
+                bool success = VerifyAndAddStudent(newStudent);
 
                 if (AutoSave.Checked)
                 {
-                    ExportButton_Click(sender, e);
+                    SaveFileButton_Click(sender, e);
                 }
             }
             catch (Exception ex)
@@ -95,12 +87,12 @@ namespace VuelingFileManager.Presentation.Form
             try
             {
                 int studentsRemoved = studentManager.EmptyStudents();
-                feedback.Text = $"{studentsRemoved} students cleared.";
+                FeedbackLabel.Text = $"{studentsRemoved} students cleared.";
                 Logger.Log($"{studentsRemoved} students cleared.", Logger.Severity.Info);
 
                 if (AutoSave.Checked)
                 {
-                    ExportButton_Click(sender, e);
+                    SaveFileButton_Click(sender, e);
                 }
             }
             catch (Exception ex)
@@ -122,7 +114,7 @@ namespace VuelingFileManager.Presentation.Form
 
                     int studentCount = studentManager.GetStudentCount();
                     Logger.Log($"Imported {studentCount} students from {selectedImportFile}.", Logger.Severity.Info);
-                    feedback.Text = $"{studentCount} students loaded.";
+                    FeedbackLabel.Text = $"{studentCount} students loaded.";
                 }
             }
             catch (Exception ex)
@@ -131,63 +123,62 @@ namespace VuelingFileManager.Presentation.Form
             }
         }
 
-        private bool VerifyExportInputs(object format, int studentCount)
+        private void VerifyFormatAndSaveFile(object unsafeFileFormat)
         {
-            if (format != null)
+            if (Validators.VerifyFormat(unsafeFileFormat))
             {
-                if (Validators.VerifyFormat(format.ToString()))
-                {
-                    return true;
-                }
-                else
-                {
-                    formatPrompt.ForeColor = Color.Red;
-                    feedback.Text = $"Please check the red fields.";
-                    Logger.Log($"Format {format} is not valid for export.", Logger.Severity.Info);
-                    return false;
-                }
+                FileType fileType = (FileType)unsafeFileFormat;
+                string exportPath = studentManager.ExportStudents(fileType);
+                int studentCount = studentManager.GetStudentCount();
+
+                //FeedbackLabel.Text = $"Exported to {exportPath}.";
+                Logger.Log($"Exported {studentCount} students to {exportPath}.", Logger.Severity.Info);
             }
             else
             {
-                formatPrompt.ForeColor = Color.Red;
-                feedback.Text = $"Please check the red fields.";
-                Logger.Log($"Format is null, thus not valid for export.", Logger.Severity.Info);
-                return false;
+                FileFormatLabel.ForeColor = Color.Red;
+                FeedbackLabel.Text = $"Please check the red fields.";
+                Logger.Log($"Format is not valid for export.", Logger.Severity.Info);
             }
         }
 
-        private bool VerifyStudentInputs(DateTime birthday, string name, string surname)
+        private bool VerifyAndAddStudent(Student newStudent)
         {
             bool validInputs = true;
-            birthdayPrompt.ForeColor = Color.Black;
-            namePrompt.ForeColor = Color.Black;
-            surnamePrompt.ForeColor = Color.Black;
+            BirthdayLabel.ForeColor = Color.Black;
+            NameLabel.ForeColor = Color.Black;
+            SurnameLabel.ForeColor = Color.Black;
 
-            if (!Validators.VerifyDateTime(birthday, minimumStudentAge))
+            if (!Validators.VerifyDateTime(newStudent.Birthday, minimumStudentAge))
             {
                 validInputs = false;
-                birthdayPrompt.ForeColor = Color.Red;
-                Logger.Log($"Birthday {birthday} not valid.", Logger.Severity.Info);
+                BirthdayLabel.ForeColor = Color.Red;
+                Logger.Log($"Birthday {newStudent.Birthday} not valid.", Logger.Severity.Info);
             }
-            if (!Validators.VerifyName(name))
+            if (!Validators.VerifyName(newStudent.Name))
             {
                 validInputs = false;
-                namePrompt.ForeColor = Color.Red;
-                Logger.Log($"Name {name} not valid.", Logger.Severity.Info);
+                NameLabel.ForeColor = Color.Red;
+                Logger.Log($"Name {newStudent.Name} not valid.", Logger.Severity.Info);
             }
-            if (!Validators.VerifyName(surname))
+            if (!Validators.VerifyName(newStudent.Surname))
             {
                 validInputs = false;
-                surnamePrompt.ForeColor = Color.Red;
-                Logger.Log($"Surname {surname} not valid.", Logger.Severity.Info);
+                SurnameLabel.ForeColor = Color.Red;
+                Logger.Log($"Surname {newStudent.Surname} not valid.", Logger.Severity.Info);
             }
 
-            if (!validInputs)
+            if (validInputs)
             {
-                feedback.Text = "Please check the red fields.";
+                studentManager.AddNewStudent(newStudent);
+                FeedbackLabel.Text = $"Student {newStudent.Id} added.";
+                Logger.Log($"Student {newStudent.Guid} added.", Logger.Severity.Info);
+                return true;
+            } else
+            {
+                FeedbackLabel.Text = "Please check the red fields.";
+                return false;
             }
-
-            return validInputs;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using VuelingFileManager.Transversal.Utilities.Models;
 
 namespace VuelingFileManager.Transversal.Utilities
 {
@@ -17,11 +18,16 @@ namespace VuelingFileManager.Transversal.Utilities
             }
         }
 
-        public static bool VerifyFormat(string format)
+        public static bool VerifyFormat(object unsafeFileFormat)
         {
-            string[] validFormats = { "TXT", "JSON", "XML" };
-
-            return validFormats.Contains(format);
+            if (unsafeFileFormat != null && unsafeFileFormat is FileType)
+            {
+                return true;   
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public static bool VerifyName(string name)
