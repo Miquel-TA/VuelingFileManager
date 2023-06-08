@@ -45,7 +45,7 @@ namespace VuelingFileManager.Infrastructure.DataManager
         {
             string filePath = CreateFilepathForExport("json");
 
-            string jsonString = JsonConvert.SerializeObject(students);
+            string jsonString = JsonConvert.SerializeObject(students, Formatting.Indented);
             File.WriteAllText(filePath, jsonString);
             SystemInteraction.OpenFile(filePath);
             return filePath;
